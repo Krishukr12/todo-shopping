@@ -7,12 +7,12 @@ const todoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  specification: {
+  isCompleted: {
     type: Boolean,
-    required: true,
+    default: false,
   },
 });
 
 const todoModel = mongoose.model("Todo", todoSchema);
 
-module.exports = CarListing;
+module.exports = todoModel;

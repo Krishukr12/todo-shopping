@@ -2,7 +2,7 @@
 const { Router } = require("express");
 const {
   createTodo,
-  updateTodo,
+  updateTodoStatus,
   deleteTodo,
   getTodos,
 } = require("../controllers/todoController");
@@ -13,10 +13,10 @@ const todoRouter = Router();
 todoRouter.post("/create", createTodo);
 
 // Update Todo
-todoRouter.put("/update", updateTodo);
+todoRouter.put("/update/:id", updateTodoStatus);
 
 // Delete Todo
-todoRouter.delete("/delete", deleteTodo);
+todoRouter.delete("/delete/:id", deleteTodo);
 
 // Get Todos
 todoRouter.get("/", getTodos);
