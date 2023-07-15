@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 
 import styles from "./Navbar.module.css";
 import CartIcon from "../CartIcon/CartIcon";
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 
 export const Navbar = () => {
+  const { cart } = useContext(CartContext);
   return (
     <div className={styles.navContainer}>
       {/* Logo container */}
@@ -21,7 +24,7 @@ export const Navbar = () => {
       <div className={styles.cart_container}>
         <Link to="/cart">
           {" "}
-          <CartIcon />
+          <CartIcon itemCount={cart.length} />
         </Link>
       </div>
     </div>

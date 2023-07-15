@@ -1,19 +1,24 @@
+import { useEffect, useState } from "react";
 import ProductCard from "../../components/Product Card/ProductCard";
-
+import styles from "./Products.module.css";
+import axios from "axios";
 const Products = () => {
-  const product = {
-    id: 1,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15" Laptops',
-    price: 109.95,
-    description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: { rate: 3.9, count: 120 },
-  };
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await axios.get("https://fakestoreapi.com/products");
+      setProducts(response.data);
+    };
+    fetchProducts();
+  }, []);
+
   return (
-    <div>
-      <ProductCard product={product} />
+    <div className={styles.container}>
+      {products.length > 0
+        ? products.map((item, index) => {
+            return <ProductCard key={index} product={item} />;
+          })
+        : null}
     </div>
   );
 };

@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import { FaCartPlus } from "react-icons/fa";
 import styles from "./ProductCard.module.css";
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 
 const ProductCard = ({ product }) => {
   const { title, price, image, rating } = product;
+  const { handleAddToCart } = useContext(CartContext);
 
   return (
     <div className={styles.productCard}>
@@ -11,10 +14,13 @@ const ProductCard = ({ product }) => {
       <h3 className={styles.productTitle}>{title}</h3>
       <p className={styles.productPrice}>Price: {price}₹</p>
       <div className={styles.productRating}>
-        <span className={styles.ratingValue}>{rating.rate}</span>
+        <span className={styles.ratingValue}>Reviews : {rating.rate}</span>
         <span className={styles.ratingCount}>({rating.count} reviews)</span>
       </div>
-      <button className={styles.addToCartButton}>
+      <button
+        onClick={() => handleAddToCart(product)}
+        className={styles.addToCartButton}
+      >
         <FaCartPlus className={styles.cartIcon} />
         Add to Cart
       </button>

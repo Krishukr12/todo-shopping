@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import styles from "./CartIcon.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-const CartIcon = () => {
-  let itemCount = 10;
+const CartIcon = ({ itemCount }) => {
   return (
     <div className={styles.cart}>
       <span className={styles.count}>{itemCount}</span>
