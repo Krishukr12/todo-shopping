@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 //? : All Imports
 import { FaCartPlus } from "react-icons/fa";
-import styles from "./ProductCard.module.css";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
+
+import styles from "./ProductCard.module.css";
 
 const ProductCard = ({ product }) => {
   const { title, price, image, rating } = product;

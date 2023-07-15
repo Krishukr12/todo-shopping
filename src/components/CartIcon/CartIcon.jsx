@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 //? All Imports
 import styles from "./CartIcon.module.css";
+
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const CartIcon = ({ itemCount }) => {

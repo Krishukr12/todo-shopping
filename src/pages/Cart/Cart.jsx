@@ -1,12 +1,13 @@
+//? : All imports
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
-import styles from "./Cart.module.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
+import styles from "./Cart.module.css";
+
 const Cart = () => {
   const { cart, deleteFromCart } = useContext(CartContext);
-
   const cartTotal = cart.reduce((total, item) => total + item.price, 0);
 
   return (

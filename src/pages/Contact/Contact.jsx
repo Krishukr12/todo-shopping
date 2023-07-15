@@ -1,11 +1,14 @@
 //? : All Imports
-import { useState } from "react";
-import styles from "./Contact.module.css";
 import { validateEmail } from "../../utils/Validation";
+import { useState } from "react";
+
+import styles from "./Contact.module.css";
 import useCustomToast from "../../hooks/useCustomToast";
+
 const ContactPage = () => {
   const [userDetails, setUserDetails] = useState({});
   const showToast = useCustomToast();
+
   //Event handlers : to handle submitting
   const handleSubmit = (event) => {
     event.preventDefault();

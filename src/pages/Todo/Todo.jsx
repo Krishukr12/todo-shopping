@@ -1,8 +1,10 @@
 //? : All Imports
+
 import { useContext } from "react";
 import { AiFillDelete } from "react-icons/ai";
-import styles from "./Todo.module.css";
 import { TodoContext } from "../../Context/TodoContext";
+
+import styles from "./Todo.module.css";
 
 const Todo = () => {
   const {
