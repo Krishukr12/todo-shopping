@@ -41,14 +41,3 @@
   border-bottom: 2px solid rgb(79, 70, 229);
   padding-bottom: 0.1rem;
 }
-
-/* ...............Media queries(Medium Device)........................ */
-@media screen and (max-width: 1024px) {
-  /* Add your specific styles for medium devices here */
-}
-
-/* ....................Media queries (Small Devices)............... */
-@media screen and (max-width: 600px) {
-  .navContainer {
-  }
-}

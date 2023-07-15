@@ -19,7 +19,7 @@ const TodoProvider = ({ children }) => {
     }
   };
 
-  // Handler : To handle todo completion
+  // Handler : To handle todo completion status change
   const handleToggleComplete = (index) => {
     const updatedTodos = todos.map((todo, i) => {
       if (i === index) {

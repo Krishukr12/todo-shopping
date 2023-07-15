@@ -12,6 +12,7 @@ const CartProvider = ({ children }) => {
     }
   }, []);
 
+  // Handler : To handle Add to Cart
   const handleAddToCart = (product) => {
     const isProductInCart = cart.some((item) => item.id === product.id);
     if (isProductInCart) {
@@ -23,6 +24,7 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  // Handler : To handle Delete from Cart
   const deleteFromCart = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);

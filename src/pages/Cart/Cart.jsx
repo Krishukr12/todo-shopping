@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
-// import CloseIcon from "@material-ui/icons/Close";
 import styles from "./Cart.module.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
+
 const Cart = () => {
   const { cart, deleteFromCart } = useContext(CartContext);
 

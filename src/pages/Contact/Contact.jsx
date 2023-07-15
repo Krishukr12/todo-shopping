@@ -1,5 +1,7 @@
+//? : All Imports
 import styles from "./Contact.module.css";
 const ContactPage = () => {
+  //Event handlers : to handle submitting
   const handleSubmit = (event) => {
     event.preventDefault();
   };
