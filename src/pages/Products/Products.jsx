@@ -1,38 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import ProductCard from "../../components/Product Card/ProductCard";
 import styles from "./Products.module.css";
-import axios from "axios";
 import { Spinner } from "@chakra-ui/react";
+import { ProductContext } from "../../Context/ProductContext";
+
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  useEffect(() => {
-    setIsLoading(true);
-    try {
-      const fetchProducts = async () => {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        setProducts(response.data);
-        setIsLoading(false);
-      };
-      fetchProducts();
-    } catch (error) {
-      setIsLoading(false);
-    }
-  }, []);
+  const { isLoading, products } = useContext(ProductContext);
 
   return (
     <div className={styles.container}>
       {isLoading ? (
-        <div
-          style={{
-            display: "flex",
-            height: "90vh",
-            width: "410%",
-            justifyContent: "center",
-            alignItems: "center",
-            margin: "auto",
-          }}
-        >
+        <div className={styles.spinnerContainer}>
           <Spinner
             thickness="4px"
             speed="0.65s"
