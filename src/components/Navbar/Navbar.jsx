@@ -18,6 +18,8 @@ export const Navbar = () => {
       <div className={styles.link_container}>
         <Link to="/todolist">TodoList</Link>
         <Link to="/products">Products</Link>
+        <Link to="/contact">Contact Us</Link>
+        <Link to="/about">About</Link>
       </div>
 
       {/* Cart Notification */}

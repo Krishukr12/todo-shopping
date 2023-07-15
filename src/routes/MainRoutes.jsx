@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Todo from "../pages/Todo/Todo";
 import Products from "../pages/Products/Products";
 import Cart from "../pages/Cart/Cart";
+import ContactPage from "../pages/Contact/Contact";
 
 export const MainRoutes = () => {
   return (
@@ -11,6 +12,7 @@ export const MainRoutes = () => {
         <Route path="/todolist" element={<Todo />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/contact" element={<ContactPage />}></Route>
       </Routes>
     </div>
   );
