@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import useCustomToast from "../hooks/useCustomToast";
 
 export const TodoContext = React.createContext();
 // eslint-disable-next-line react/prop-types
 const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
+  const showToast = useCustomToast();
 
   // Handler : To handle input changes
   const handleInputChange = (event) => {
@@ -13,10 +15,12 @@ const TodoProvider = ({ children }) => {
 
   // Handler : To handle Add Todo
   const handleAddTodo = () => {
-    if (newTodo.trim() !== "") {
-      setTodos([...todos, { text: newTodo, completed: false }]);
-      setNewTodo("");
+    if (newTodo.trim() == "") {
+      showToast("Todo can't be empty", "error");
+      return;
     }
+    setTodos([...todos, { text: newTodo, completed: false }]);
+    setNewTodo("");
   };
 
   // Handler : To handle todo completion status change
@@ -34,6 +38,7 @@ const TodoProvider = ({ children }) => {
   const handleRemoveTodo = (index) => {
     const updatedTodos = todos.filter((_, i) => i !== index);
     setTodos(updatedTodos);
+    showToast("Todo successfully Removed", "success");
   };
 
   // Function : Get the number of tasks
