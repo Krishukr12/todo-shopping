@@ -1,40 +1,17 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import styles from "./Todo.module.css";
+import { TodoContext } from "../../Context/TodoContext";
 
 const Todo = () => {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState("");
-
-  // Handler : To handle input changes
-  const handleInputChange = (event) => {
-    setNewTodo(event.target.value);
-  };
-
-  // Handler : To handle Add Todo
-  const handleAddTodo = () => {
-    if (newTodo.trim() !== "") {
-      setTodos([...todos, { text: newTodo, completed: false }]);
-      setNewTodo("");
-    }
-  };
-
-  // Handler : To handle todo completion
-  const handleToggleComplete = (index) => {
-    const updatedTodos = todos.map((todo, i) => {
-      if (i === index) {
-        return { ...todo, completed: !todo.completed };
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
-  };
-
-  // Handler : To handle todo deletion
-  const handleRemoveTodo = (index) => {
-    const updatedTodos = todos.filter((_, i) => i !== index);
-    setTodos(updatedTodos);
-  };
+  const {
+    todos,
+    newTodo,
+    handleInputChange,
+    handleAddTodo,
+    handleToggleComplete,
+    handleRemoveTodo,
+  } = useContext(TodoContext);
 
   return (
     <div className={styles.container}>
@@ -52,7 +29,7 @@ const Todo = () => {
         </button>
       </div>
       <div className={styles.todoList}>
-        {/* Render each todo */}
+        {/* All todos list */}
         {todos.map((todo, index) => (
           <div
             key={index}
@@ -62,7 +39,7 @@ const Todo = () => {
           >
             <span className={styles.text}>{todo.text}</span>
             <div>
-              {/* Checkbox to toggle completed status */}
+              {/* Checkbox to toggle completion status */}
               <input
                 type="checkbox"
                 className={styles.checkbox}
