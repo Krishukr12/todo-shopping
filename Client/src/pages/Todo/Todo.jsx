@@ -43,22 +43,22 @@ const Todo = () => {
           <div
             key={index}
             className={`${styles.todo} ${
-              todo.completed ? styles.completed : ""
+              todo.isCompleted ? styles.completed : ""
             }`}
           >
-            <span className={styles.text}>{todo.text}</span>
+            <span className={styles.text}>{todo.title}</span>
             <div>
               {/* Checkbox to toggle completion status */}
               <input
                 type="checkbox"
                 className={styles.checkbox}
-                checked={todo.completed}
-                onChange={() => handleToggleComplete(index)}
+                checked={todo.isCompleted}
+                onChange={() => handleToggleComplete(todo._id)}
               />
               {/* Button to remove todo */}
               <button
                 className={styles.removeButton}
-                onClick={() => handleRemoveTodo(index)}
+                onClick={() => handleRemoveTodo(todo._id)}
               >
                 <AiFillDelete />
               </button>{" "}
