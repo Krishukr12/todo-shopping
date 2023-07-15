@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -13,7 +14,9 @@ const HomePage = () => {
         efficient development. It incorporates state management, API
         integration, and routing for a seamless user experience
       </p>
-      <button className={styles.button}>Get Started</button>
+      <Link to="/todolist">
+        <button className={styles.button}>Get Started</button>
+      </Link>
     </div>
   );
 };
