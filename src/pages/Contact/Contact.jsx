@@ -1,5 +1,9 @@
 import styles from "./Contact.module.css";
 const ContactPage = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div className={styles.contactPage}>
       <h2 className={styles.title}>Contact Us</h2>
@@ -16,7 +20,10 @@ const ContactPage = () => {
           Message:
           <textarea className={styles.textarea}></textarea>
         </label>
-        <button type="submit" className={styles.submitButton}>
+        <button
+          onClick={() => handleSubmit(event)}
+          className={styles.submitButton}
+        >
           Submit
         </button>
       </form>
