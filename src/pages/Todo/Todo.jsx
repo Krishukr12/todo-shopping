@@ -11,11 +11,17 @@ const Todo = () => {
     handleAddTodo,
     handleToggleComplete,
     handleRemoveTodo,
+    getTaskCount,
+    getCompletedTaskCount,
   } = useContext(TodoContext);
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Todo List</h1>
+      <div className={styles.stats}>
+        <p>Total Tasks: {getTaskCount()}</p>
+        <p>Completed Tasks: {getCompletedTaskCount()}</p>
+      </div>
       <div className={styles.addTodo}>
         <input
           type="text"

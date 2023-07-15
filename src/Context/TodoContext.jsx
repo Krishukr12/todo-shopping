@@ -35,6 +35,17 @@ const TodoProvider = ({ children }) => {
     const updatedTodos = todos.filter((_, i) => i !== index);
     setTodos(updatedTodos);
   };
+
+  // Function : Get the number of tasks
+  const getTaskCount = () => {
+    return todos.length;
+  };
+
+  //  Function : Get the number of completed tasks
+  const getCompletedTaskCount = () => {
+    return todos.filter((todo) => todo.completed).length;
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -44,6 +55,8 @@ const TodoProvider = ({ children }) => {
         handleAddTodo,
         handleToggleComplete,
         handleRemoveTodo,
+        getTaskCount,
+        getCompletedTaskCount,
       }}
     >
       {children}
